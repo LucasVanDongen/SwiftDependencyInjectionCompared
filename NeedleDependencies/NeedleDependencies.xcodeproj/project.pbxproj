@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0107A472BA090F300D3A35B /* NeedleDependenciesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A462BA090F300D3A35B /* NeedleDependenciesApp.swift */; };
+		A0107A492BA090F300D3A35B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A482BA090F300D3A35B /* ContentView.swift */; };
+		A0107A4B2BA090F600D3A35B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0107A4A2BA090F600D3A35B /* Assets.xcassets */; };
+		A0107A4E2BA090F600D3A35B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0107A4D2BA090F600D3A35B /* Preview Assets.xcassets */; };
+		A0107A592BA0934A00D3A35B /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A0107A582BA0934A00D3A35B /* NeedleFoundation */; };
+		A0107A5C2BA099EF00D3A35B /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A5B2BA099EF00D3A35B /* NeedleGenerated.swift */; };
+		A0107A5E2BA09ADB00D3A35B /* RootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A5D2BA09ADB00D3A35B /* RootComponent.swift */; };
+		A0107A612BA09B7D00D3A35B /* SharedDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = A0107A602BA09B7D00D3A35B /* SharedDependencies */; };
+		A0107A632BA0A93B00D3A35B /* LogInComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A622BA0A93B00D3A35B /* LogInComponent.swift */; };
+		A0107A652BA0A96700D3A35B /* AuthenticatedComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A642BA0A96700D3A35B /* AuthenticatedComponent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A0107A432BA090F300D3A35B /* NeedleDependencies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeedleDependencies.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0107A462BA090F300D3A35B /* NeedleDependenciesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedleDependenciesApp.swift; sourceTree = "<group>"; };
+		A0107A482BA090F300D3A35B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A0107A4A2BA090F600D3A35B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0107A4D2BA090F600D3A35B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A0107A4F2BA090F600D3A35B /* NeedleDependencies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NeedleDependencies.entitlements; sourceTree = "<group>"; };
+		A0107A5B2BA099EF00D3A35B /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		A0107A5D2BA09ADB00D3A35B /* RootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootComponent.swift; sourceTree = "<group>"; };
+		A0107A622BA0A93B00D3A35B /* LogInComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInComponent.swift; sourceTree = "<group>"; };
+		A0107A642BA0A96700D3A35B /* AuthenticatedComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedComponent.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0107A402BA090F300D3A35B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0107A612BA09B7D00D3A35B /* SharedDependencies in Frameworks */,
+				A0107A592BA0934A00D3A35B /* NeedleFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0107A3A2BA090F300D3A35B = {
+			isa = PBXGroup;
+			children = (
+				A0107A452BA090F300D3A35B /* NeedleDependencies */,
+				A0107A442BA090F300D3A35B /* Products */,
+				A0107A572BA0934A00D3A35B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A0107A442BA090F300D3A35B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0107A432BA090F300D3A35B /* NeedleDependencies.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0107A452BA090F300D3A35B /* NeedleDependencies */ = {
+			isa = PBXGroup;
+			children = (
+				A0107A5B2BA099EF00D3A35B /* NeedleGenerated.swift */,
+				A0107A462BA090F300D3A35B /* NeedleDependenciesApp.swift */,
+				A0107A482BA090F300D3A35B /* ContentView.swift */,
+				A0107A4A2BA090F600D3A35B /* Assets.xcassets */,
+				A0107A4F2BA090F600D3A35B /* NeedleDependencies.entitlements */,
+				A0107A4C2BA090F600D3A35B /* Preview Content */,
+				A0107A5D2BA09ADB00D3A35B /* RootComponent.swift */,
+				A0107A622BA0A93B00D3A35B /* LogInComponent.swift */,
+				A0107A642BA0A96700D3A35B /* AuthenticatedComponent.swift */,
+			);
+			path = NeedleDependencies;
+			sourceTree = "<group>";
+		};
+		A0107A4C2BA090F600D3A35B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A0107A4D2BA090F600D3A35B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A0107A572BA0934A00D3A35B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0107A422BA090F300D3A35B /* NeedleDependencies */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0107A522BA090F600D3A35B /* Build configuration list for PBXNativeTarget "NeedleDependencies" */;
+			buildPhases = (
+				A0107A5A2BA0959D00D3A35B /* Needle */,
+				A0107A3F2BA090F300D3A35B /* Sources */,
+				A0107A402BA090F300D3A35B /* Frameworks */,
+				A0107A412BA090F300D3A35B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeedleDependencies;
+			packageProductDependencies = (
+				A0107A582BA0934A00D3A35B /* NeedleFoundation */,
+				A0107A602BA09B7D00D3A35B /* SharedDependencies */,
+			);
+			productName = NeedleDependencies;
+			productReference = A0107A432BA090F300D3A35B /* NeedleDependencies.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0107A3B2BA090F300D3A35B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					A0107A422BA090F300D3A35B = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = A0107A3E2BA090F300D3A35B /* Build configuration list for PBXProject "NeedleDependencies" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0107A3A2BA090F300D3A35B;
+			packageReferences = (
+				A0107A562BA092C300D3A35B /* XCRemoteSwiftPackageReference "needle" */,
+				A0107A5F2BA09B7D00D3A35B /* XCLocalSwiftPackageReference "../SharedDependencies" */,
+			);
+			productRefGroup = A0107A442BA090F300D3A35B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0107A422BA090F300D3A35B /* NeedleDependencies */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0107A412BA090F300D3A35B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0107A4E2BA090F600D3A35B /* Preview Assets.xcassets in Resources */,
+				A0107A4B2BA090F600D3A35B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0107A5A2BA0959D00D3A35B /* Needle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Needle;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export SOURCEKIT_LOGGING=0 && needle generate ./NeedleDependencies/NeedleGenerated.swift ./ --header-doc ./NeedleDependencies/copyright_header.txt\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0107A3F2BA090F300D3A35B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0107A492BA090F300D3A35B /* ContentView.swift in Sources */,
+				A0107A652BA0A96700D3A35B /* AuthenticatedComponent.swift in Sources */,
+				A0107A5E2BA09ADB00D3A35B /* RootComponent.swift in Sources */,
+				A0107A472BA090F300D3A35B /* NeedleDependenciesApp.swift in Sources */,
+				A0107A632BA0A93B00D3A35B /* LogInComponent.swift in Sources */,
+				A0107A5C2BA099EF00D3A35B /* NeedleGenerated.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A0107A502BA090F600D3A35B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0107A512BA090F600D3A35B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		A0107A532BA090F600D3A35B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NeedleDependencies/NeedleDependencies.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NeedleDependencies/Preview Content\"";
+				DEVELOPMENT_TEAM = 3RR8WDK6W2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.lucasvandongen.NeedleDependencies;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A0107A542BA090F600D3A35B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NeedleDependencies/NeedleDependencies.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NeedleDependencies/Preview Content\"";
+				DEVELOPMENT_TEAM = 3RR8WDK6W2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.lucasvandongen.NeedleDependencies;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0107A3E2BA090F300D3A35B /* Build configuration list for PBXProject "NeedleDependencies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0107A502BA090F600D3A35B /* Debug */,
+				A0107A512BA090F600D3A35B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0107A522BA090F600D3A35B /* Build configuration list for PBXNativeTarget "NeedleDependencies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0107A532BA090F600D3A35B /* Debug */,
+				A0107A542BA090F600D3A35B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A0107A5F2BA09B7D00D3A35B /* XCLocalSwiftPackageReference "../SharedDependencies" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../SharedDependencies;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A0107A562BA092C300D3A35B /* XCRemoteSwiftPackageReference "needle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:uber/needle.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A0107A582BA0934A00D3A35B /* NeedleFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0107A562BA092C300D3A35B /* XCRemoteSwiftPackageReference "needle" */;
+			productName = NeedleFoundation;
+		};
+		A0107A602BA09B7D00D3A35B /* SharedDependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedDependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A0107A3B2BA090F300D3A35B /* Project object */;
+}
