@@ -7,13 +7,14 @@
 
 import Foundation
 
-public protocol UserManaging {
+// ObservableObject is really here for EnvironmentObject
+public protocol UserManaging: ObservableObject {
     var token: String { get }
 
     func update(user: String) async throws -> Bool
 }
 
-public class UserManager: UserManaging {
+public class UserManager: ObservableObject, UserManaging {
     public let token: String
 
     public init(token: String) {

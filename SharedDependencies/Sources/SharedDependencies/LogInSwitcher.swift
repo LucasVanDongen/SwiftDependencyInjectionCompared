@@ -8,13 +8,14 @@
 import Combine
 import Foundation
 
-public protocol LogInSwitching {
+// ObservableObject is really here for EnvironmentObject
+public protocol LogInSwitching: ObservableObject {
     var tokenPublisher: PassthroughSubject<String, Never> { get }
 
     func loggedIn(with token: String)
 }
 
-public class LogInSwitcher: LogInSwitching {
+public class LogInSwitcher: ObservableObject, LogInSwitching {
     public let tokenPublisher = PassthroughSubject<String, Never>()
 
     public init() { }
