@@ -8,6 +8,7 @@
 import SharedDependencies
 import SwiftUI
 
+@MainActor
 struct AuthenticatedView: View {
     let dependencies: AuthenticatedDependenciesContaining
 
@@ -38,6 +39,7 @@ struct AuthenticatedView: View {
     }
 }
 
+@MainActor
 struct UserManagementView: View {
     private enum ViewState: Equatable {
         case loaded
@@ -145,7 +147,7 @@ struct LogInView: View {
                     Text("You are logged out now")
                     Button {
                         Task {
-                            await auth()
+                            await authenticate()
                         }
                     } label: {
                         Text("Log In")
@@ -155,7 +157,7 @@ struct LogInView: View {
         }
     }
 
-    private func auth() async {
+    private func authenticate() async {
         isAuthenticating = true
 
         defer {

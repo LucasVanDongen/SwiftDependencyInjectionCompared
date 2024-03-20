@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Story: Sendable {
+public struct Story: Sendable, Equatable {
     public let author: String
     public let name: String
 }

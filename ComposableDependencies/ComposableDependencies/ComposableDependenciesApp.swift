@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct ComposableDependenciesApp: App {
-    @State private var store = Store(initialState: .logIn(LogInFeature.State())) {
+    @State private var store = Store(initialState: .logIn(.waiting)) {
         AppRootFeature.body
     }
 

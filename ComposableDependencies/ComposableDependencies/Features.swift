@@ -12,7 +12,6 @@ struct Session: Equatable {
     let token: String
 }
 
-
 @Reducer(state: .equatable)
 enum AppRootFeature {
     case authenticated(AuthenticatedFeature)
@@ -35,6 +34,8 @@ enum AppRootFeature {
         }
         .ifCaseLet(\.authenticated, action: \.authenticated) {
             AuthenticatedFeature()
+//                .dependency(\.userManager, UserManager(token: token)
+//                .dependency(\.storyFetcher, .StoryFetcher(token: token)
         }._printChanges()
     }
 }
@@ -47,16 +48,13 @@ struct AuthenticatedFeature {
     }
 
     enum Action {
-        case showUser
-        case showOrder
+        case logOut
     }
 
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .showUser:
-                return .none
-            case .showOrder:
+            case .logOut:
                 return .none
             }
         }
@@ -68,7 +66,10 @@ struct LogInFeature {
     @Dependency(\.authentication) var authentication
 
     @ObservableState
-    struct State: Equatable { }
+    enum State: Equatable {
+        case waiting
+        case authenticating
+    }
 
     enum Action {
         case logIn
@@ -80,6 +81,7 @@ struct LogInFeature {
         Reduce { state, action in
             switch action {
             case .logIn:
+                state = .authenticating
                 return .run { send in
                     do {
                         let token = try await authentication.authenticate()
@@ -88,11 +90,89 @@ struct LogInFeature {
                         await send(.authenticationError(error))
                     }
                 }
-            case let .authenticationError(error):
-                print(error)
+            case .authenticationError:
                 return .none // Not handled ATM
             case .authenticatedSuccessfully:
                 return .none // Only interesting for root feature
+            }
+        }
+    }
+}
+
+@Reducer
+struct StoriesFeature {
+    @Dependency(\.storyFetcher) var storyFetcher
+
+    @ObservableState
+    enum State: Equatable {
+        case loading
+        case failed(reason: String)
+        case loaded(stories: [Story])
+    }
+
+    enum Action {
+        case startLoading
+        case loaded(stories: [Story])
+    }
+
+    var body: some Reducer<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .startLoading:
+                return .run { send in
+                    do {
+                        let stories = try await storyFetcher.fetchStories()
+                        await send(.loaded(stories: stories))
+                    } catch {
+                        // We're ignoring error handling for now
+                    }
+                }
+            case let .loaded(stories):
+                state = .loaded(stories: stories)
+                return .none
+            }
+        }
+    }
+}
+
+@Reducer
+struct UserManagementFeature {
+    @Dependency(\.userManager) var userManager
+
+    @ObservableState
+    enum State: Equatable {
+        case loaded
+        case updating
+        case failed(reason: String)
+        case updated
+    }
+
+    enum Action {
+        case update
+        case failed(reason: String)
+        case updated
+    }
+
+    var body: some Reducer<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .update:
+                state = .updating
+
+                return .run { send in
+                    do {
+                        _ = try await userManager.update(user: "")
+                        await send(.updated)
+                    } catch {
+                        // Ignore for now
+                    }
+                }
+            case let .failed(reason):
+                state = .failed(reason: reason)
+                return .none
+            case .updated:
+                state = .updated
+                return .none
             }
         }
     }

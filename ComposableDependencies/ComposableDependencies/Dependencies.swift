@@ -20,7 +20,7 @@ extension DependencyValues {
 }
 
 // This implementation is used to prevent a `nil` value for this dependency while the user is not authenticated yet
-class PlaceholderUserManager: UserManaging {
+final class PlaceholderUserManager: UserManaging {
     let token = "WR0NG_T4K3N"
 
     func update(user: String) async throws -> Bool {
@@ -29,12 +29,30 @@ class PlaceholderUserManager: UserManaging {
 }
 
 private enum UserManagerKey: DependencyKey {
-    static let liveValue: UserManaging = PlaceholderUserManager()
+    static let liveValue: any UserManaging = PlaceholderUserManager()
 }
 
 extension DependencyValues {
-    var userManager: UserManaging {
+    var userManager: any UserManaging {
         get { self[UserManagerKey.self] }
         set { self[UserManagerKey.self] = newValue }
+    }
+}
+
+final class PlaceholderStoryFetcher: StoryFetching {
+    // If this function would ever be executed, we have a problem
+    func fetchStories() async throws -> [Story] {
+        return []
+    }
+}
+
+private enum StoryFetcherKey: DependencyKey {
+    static let liveValue: any StoryFetching = PlaceholderStoryFetcher()
+}
+
+extension DependencyValues {
+    var storyFetcher: any StoryFetching {
+        get { self[StoryFetcherKey.self] }
+        set { self[StoryFetcherKey.self] = newValue }
     }
 }

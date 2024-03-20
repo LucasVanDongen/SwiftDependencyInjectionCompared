@@ -19,6 +19,7 @@ extension EnvironmentValues {
     }
 }
 
+@MainActor
 struct AuthenticatedView: View {
     @EnvironmentObject private var logInSwitcher: LogInSwitcher
 
@@ -50,6 +51,7 @@ struct AuthenticatedView: View {
     }
 }
 
+@MainActor
 struct UserManagementView: View {
     private enum ViewState: Equatable {
         case loaded
@@ -132,6 +134,7 @@ struct StoriesView: View {
     }
 }
 
+@MainActor
 struct LogInView: View {
     @Environment(\.authentication) private var authentication: Authentication
     @EnvironmentObject private var logInSwitcher: LogInSwitcher
