@@ -1,5 +1,5 @@
 //
-//  AuthenticationDependency.swift
+//  Authentication.swift
 //
 //
 //  Created by Lucas van Dongen on 05/03/2024.
@@ -15,6 +15,7 @@ public actor Authentication: Authenticating {
     public init() { }
 
     public func authenticate() async throws -> String  {
+        try await Task.sleep(for: .seconds(3))
         return "V4L1D-T0K3N"
     }
 }

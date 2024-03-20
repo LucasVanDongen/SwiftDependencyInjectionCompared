@@ -10,34 +10,43 @@ import SharedDependencies
 
 protocol LogInDependenciesContaining {
     var authentication: Authenticating { get }
-    var logInSwitcher: LogInSwitching { get }
+    var logInSwitcher: any LogInSwitching { get }
 }
 
 class LogInDependencies: LogInDependenciesContaining {
     let authentication: Authenticating = Authentication()
-    let logInSwitcher: LogInSwitching = LogInSwitcher()
+    let logInSwitcher: any LogInSwitching = LogInSwitcher()
 }
 
+//protocol AuthenticatedDependenciesContaining {
+//    var token: String { get }
+//}
+//
+//class AuthenticatedDependencies: AuthenticatedDependenciesContaining {
+//    let token: String
+//
+//    init(token: String) {
+//        self.token = token
+//    }
+//}
+
 protocol AuthenticatedDependenciesContaining {
-    var token: String { get }
+    var userManager: any UserManaging { get }
+    var logInSwitcher: any LogInSwitching { get }
+    var storyFetcher: any StoryFetching { get }
 }
 
 class AuthenticatedDependencies: AuthenticatedDependenciesContaining {
-    let token: String
+    let userManager: any UserManaging
+    let logInSwitcher: any LogInSwitching
+    let storyFetcher: StoryFetching
 
-    init(token: String) {
-        self.token = token
-    }
-}
-
-protocol UserManagementDependenciesContaining {
-    var userManager: UserManaging { get }
-}
-
-class UserManagementDependencies: UserManagementDependenciesContaining {
-    let userManager: UserManaging
-
-    init(userManager: UserManaging) {
-        self.userManager = userManager
+    init(
+        token: String,
+        logInSwitcher: any LogInSwitching
+    ) {
+        self.userManager = UserManager(token: token)
+        self.logInSwitcher = logInSwitcher
+        self.storyFetcher = StoryFetcher(token: token)
     }
 }

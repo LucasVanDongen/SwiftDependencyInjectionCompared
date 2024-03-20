@@ -5,22 +5,27 @@
 //  Created by Lucas van Dongen on 12/03/2024.
 //
 
-import Combine
+import AsyncAlgorithms
 import Foundation
 
 // ObservableObject is really here for EnvironmentObject
-public protocol LogInSwitching: ObservableObject {
-    var tokenPublisher: PassthroughSubject<String, Never> { get }
+public protocol LogInSwitching: ObservableObject, Sendable {
+    var tokenChannel: AsyncChannel<String> { get }
 
-    func loggedIn(with token: String)
+    func loggedIn(with token: String) async
+    func loggedOut() async
 }
 
-public class LogInSwitcher: ObservableObject, LogInSwitching {
-    public let tokenPublisher = PassthroughSubject<String, Never>()
+public final class LogInSwitcher: ObservableObject, LogInSwitching {
+    public let tokenChannel = AsyncChannel<String>()
 
     public init() { }
 
-    public func loggedIn(with token: String) {
-        tokenPublisher.send(token)
+    public func loggedIn(with token: String) async {
+        await tokenChannel.send(token)
+    }
+
+    public func loggedOut() async {
+        await tokenChannel.send("")
     }
 }

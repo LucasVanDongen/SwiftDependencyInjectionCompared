@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:EnvironmentDependencies/EnvironmentDependencies.xcodeproj">
+      location = "group:PassedDependencies/PassedDependencies.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:PassedDependencies/PassedDependencies.xcodeproj">
+      location = "group:EnvironmentDependencies/EnvironmentDependencies.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:FactoryDependencies/FactoryDependencies.xcodeproj">
