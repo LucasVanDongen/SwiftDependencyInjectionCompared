@@ -10,7 +10,7 @@ import SharedDependencies
 import SwiftUI
 
 protocol LogInDependency: Dependency {
-    var logInSwitcher: LogInSwitching { get }
+    var logInSwitcher: any LogInSwitching { get }
 }
 
 class LogInComponent: Component<LogInDependency> {

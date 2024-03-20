@@ -9,17 +9,17 @@ import NeedleFoundation
 import SharedDependencies
 import SwiftUI
 
-//protocol AuthenticatedDependency: Dependency {
-//    var userManager: UserManaging { get }
-//}
+protocol AuthenticatedDependency: Dependency {
+    var logInSwitcher: any LogInSwitching { get }
+}
 
-class AuthenticatedComponent: Component<EmptyDependency> {
-    var userManager: UserManaging {
+class AuthenticatedComponent: Component<AuthenticatedDependency> {
+    var userManager: any UserManaging {
         return shared { UserManager(token: token) }
     }
 
-    var authenticatedView: some View {
-        AuthenticatedView(userManager: userManager)
+    var storyFetcher: any StoryFetching {
+        return shared { StoryFetcher(token: token) }
     }
 
     private let token: String
@@ -30,5 +30,28 @@ class AuthenticatedComponent: Component<EmptyDependency> {
     ) {
         self.token = token
         super.init(parent: parent)
+    }
+}
+
+protocol AuthenticatedViewBuilding {
+    var authenticatedView: AuthenticatedView { get }
+    var storiesView: StoriesView { get }
+    var userManagementView: UserManagementView { get }
+}
+
+extension AuthenticatedComponent: AuthenticatedViewBuilding {
+    var authenticatedView: AuthenticatedView {
+        AuthenticatedView(
+            logInSwitcher: dependency.logInSwitcher,
+            component: self
+        )
+    }
+
+    var storiesView: StoriesView {
+        StoriesView(storyFetcher: storyFetcher)
+    }
+
+    var userManagementView: UserManagementView {
+        UserManagementView(userManager: userManager)
     }
 }

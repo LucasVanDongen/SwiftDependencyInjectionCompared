@@ -17,8 +17,21 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 
 #if !NEEDLE_DYNAMIC
 
+private class AuthenticatedDependencycda53ef9a0d1fafe1614Provider: AuthenticatedDependency {
+    var logInSwitcher: any LogInSwitching {
+        return rootComponent.logInSwitcher
+    }
+    private let rootComponent: RootComponent
+    init(rootComponent: RootComponent) {
+        self.rootComponent = rootComponent
+    }
+}
+/// ^->RootComponent->AuthenticatedComponent
+private func factory31f7272d9f1e1bb4556eb3a8f24c1d289f2c0f2e(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return AuthenticatedDependencycda53ef9a0d1fafe1614Provider(rootComponent: parent1(component) as! RootComponent)
+}
 private class LogInDependency59c56af202a7286b1d4fProvider: LogInDependency {
-    var logInSwitcher: LogInSwitching {
+    var logInSwitcher: any LogInSwitching {
         return rootComponent.logInSwitcher
     }
     private let rootComponent: RootComponent
@@ -34,7 +47,7 @@ private func factory722f9ff168b373921da5b3a8f24c1d289f2c0f2e(_ component: Needle
 #else
 extension AuthenticatedComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\AuthenticatedDependency.logInSwitcher] = "logInSwitcher-any LogInSwitching"
     }
 }
 extension RootComponent: Registration {
@@ -45,7 +58,7 @@ extension RootComponent: Registration {
 }
 extension LogInComponent: Registration {
     public func registerItems() {
-        keyPathToName[\LogInDependency.logInSwitcher] = "logInSwitcher-LogInSwitching"
+        keyPathToName[\LogInDependency.logInSwitcher] = "logInSwitcher-any LogInSwitching"
     }
 }
 
@@ -64,7 +77,7 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 #if !NEEDLE_DYNAMIC
 
 @inline(never) private func register1() {
-    registerProviderFactory("^->RootComponent->AuthenticatedComponent", factoryEmptyDependencyProvider)
+    registerProviderFactory("^->RootComponent->AuthenticatedComponent", factory31f7272d9f1e1bb4556eb3a8f24c1d289f2c0f2e)
     registerProviderFactory("^->RootComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->RootComponent->LogInComponent", factory722f9ff168b373921da5b3a8f24c1d289f2c0f2e)
 }

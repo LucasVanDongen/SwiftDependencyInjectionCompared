@@ -39,7 +39,7 @@ protocol AuthenticatedDependenciesContaining {
 class AuthenticatedDependencies: AuthenticatedDependenciesContaining {
     let userManager: any UserManaging
     let logInSwitcher: any LogInSwitching
-    let storyFetcher: StoryFetching
+    let storyFetcher: any StoryFetching
 
     init(
         token: String,
