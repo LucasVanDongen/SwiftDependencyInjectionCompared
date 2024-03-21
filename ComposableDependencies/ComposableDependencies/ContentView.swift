@@ -107,13 +107,21 @@ struct LogInView: View {
 
 @MainActor
 struct AppView: View {
-    let store: StoreOf<AppRootFeature>
+    let store: StoreOf<Features>
 
     var body: some View {
-        switch store.case {
-        case let .authenticated(store):
+        switch store.state {
+        case let .authenticated(state):
+            let store = Store(initialState: state) {
+                AuthenticatedFeature()
+                    .dependency(\.userManager, UserManager(token: state.token))
+                    .dependency(\.storyFetcher, StoryFetcher(token: state.token))
+            }
             AuthenticatedView(store: store)
-        case let .logIn(store):
+        case let .logIn(state):
+            let store = Store(initialState: state) {
+                LogInFeature(parentStore: self.store)
+            }
             LogInView(store: store)
         }
     }
@@ -121,14 +129,14 @@ struct AppView: View {
 
 @MainActor
 struct ContentView: View {
-    let store: StoreOf<AppRootFeature>
+    let store: StoreOf<Features>
 
     init() {
         let authState = LogInFeature.State.waiting
-        let featureState = AppRootFeature.State.logIn(authState)
+        let featureState = Features.State.logIn(authState)
 
         store = Store(initialState: featureState) {
-            AppRootFeature.body._printChanges()
+            Features()._printChanges()
         }
     }
 
