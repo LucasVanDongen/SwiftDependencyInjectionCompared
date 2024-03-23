@@ -13,6 +13,7 @@
 		A0107AC72BA45EB100D3A35B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0107AC62BA45EB100D3A35B /* Preview Assets.xcassets */; };
 		A0107AD02BA466EA00D3A35B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107ACF2BA466E900D3A35B /* Model.swift */; };
 		A0107AD32BA46CB000D3A35B /* SharedDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = A0107AD22BA46CB000D3A35B /* SharedDependencies */; };
+		A0C7F3E02BAEEC4500204047 /* EnvironmentSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C7F3DF2BAEEC4500204047 /* EnvironmentSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		A0107AC42BA45EB100D3A35B /* EnvironmentDependencies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EnvironmentDependencies.entitlements; sourceTree = "<group>"; };
 		A0107AC62BA45EB100D3A35B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A0107ACF2BA466E900D3A35B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A0C7F3DF2BAEEC4500204047 /* EnvironmentSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				A0107ABE2BA45EAC00D3A35B /* EnvironmentDependenciesApp.swift */,
 				A0107AC02BA45EAC00D3A35B /* ContentView.swift */,
 				A0107ACF2BA466E900D3A35B /* Model.swift */,
+				A0C7F3DF2BAEEC4500204047 /* EnvironmentSetup.swift */,
 				A0107AC22BA45EB100D3A35B /* Assets.xcassets */,
 				A0107AC42BA45EB100D3A35B /* EnvironmentDependencies.entitlements */,
 				A0107AC52BA45EB100D3A35B /* Preview Content */,
@@ -153,6 +156,7 @@
 				A0107AD02BA466EA00D3A35B /* Model.swift in Sources */,
 				A0107AC12BA45EAC00D3A35B /* ContentView.swift in Sources */,
 				A0107ABF2BA45EAC00D3A35B /* EnvironmentDependenciesApp.swift in Sources */,
+				A0C7F3E02BAEEC4500204047 /* EnvironmentSetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

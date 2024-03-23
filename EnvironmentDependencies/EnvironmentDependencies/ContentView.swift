@@ -8,33 +8,6 @@
 import SharedDependencies
 import SwiftUI
 
-private struct AuthenticationEnvironmentKey: EnvironmentKey {
-    static let defaultValue: Authenticating = Authentication()
-}
-
-private struct UserManagerEnvironmentKey: EnvironmentKey {
-    static let defaultValue: UserManaging = PlaceholderUserManager()
-}
-
-private struct LogInSwitcherEnvironmentKey: EnvironmentKey {
-    static let defaultValue: LogInSwitching = LogInSwitcher()
-}
-
-extension EnvironmentValues {
-    var authentication: Authenticating {
-        get { self[AuthenticationEnvironmentKey.self] }
-        set { self[AuthenticationEnvironmentKey.self] = newValue }
-    }
-    var userManager: UserManaging {
-        get { self[UserManagerEnvironmentKey.self] }
-        set { self[UserManagerEnvironmentKey.self] = newValue }
-    }
-    var logInSwitcher: LogInSwitching {
-        get { self[LogInSwitcherEnvironmentKey.self] }
-        set { self[LogInSwitcherEnvironmentKey.self] = newValue }
-    }
-}
-
 @MainActor
 struct AuthenticatedView: View {
     @Environment(\.logInSwitcher) private var logInSwitcher: LogInSwitching
