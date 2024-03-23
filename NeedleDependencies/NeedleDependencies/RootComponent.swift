@@ -14,20 +14,6 @@ let rootComponent = RootComponent()
 class RootComponent: BootstrapComponent {
     var logInComponent: LogInComponent { LogInComponent(parent: self) }
 
-    @MainActor
-    var appView: some View { // requires SwiftUI. Move to UI layer, keep the rest of the Component in non-UI layer?
-        AppView(
-            viewModel: self.appViewModel,
-            logInComponent: logInComponent,
-            rootComponent: self // uhm circular reference?
-        )
-    }
-
-    @MainActor
-    var appViewModel: AppViewModel {
-        AppViewModel(logInSwitcher: logInComponent.logInSwitcher)
-    }
-
     func authenticatedComponent(token: String) -> AuthenticatedComponent {
         AuthenticatedComponent(
             parent: self,
@@ -39,5 +25,29 @@ class RootComponent: BootstrapComponent {
 extension RootComponent: LogInDependency {
     var logInSwitcher: any LogInSwitching {
         shared { LogInSwitcher() }
+    }
+}
+
+protocol AppViewBuilding {
+    @MainActor
+    var appView: AppView { get }
+
+    @MainActor
+    var appViewModel: AppViewModel { get }
+}
+
+extension RootComponent: AppViewBuilding {
+    @MainActor
+    var appView: AppView {
+        AppView(
+            viewModel: self.appViewModel,
+            logInComponent: logInComponent,
+            rootComponent: self
+        )
+    }
+
+    @MainActor
+    var appViewModel: AppViewModel {
+        AppViewModel(logInSwitcher: logInComponent.logInSwitcher)
     }
 }
