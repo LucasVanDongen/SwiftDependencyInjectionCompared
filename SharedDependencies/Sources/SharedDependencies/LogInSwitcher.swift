@@ -8,15 +8,14 @@
 import AsyncAlgorithms
 import Foundation
 
-// ObservableObject is really here for EnvironmentObject
-public protocol LogInSwitching: ObservableObject, Sendable {
+public protocol LogInSwitching: Sendable {
     var tokenChannel: AsyncChannel<String> { get }
 
     func loggedIn(with token: String) async
     func loggedOut() async
 }
 
-public final class LogInSwitcher: ObservableObject, LogInSwitching {
+public final class LogInSwitcher: LogInSwitching {
     public let tokenChannel = AsyncChannel<String>()
 
     public init() { }

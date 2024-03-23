@@ -9,19 +9,35 @@ import SharedDependencies
 import SwiftUI
 
 private struct AuthenticationEnvironmentKey: EnvironmentKey {
-    static let defaultValue: Authentication = Authentication()
+    static let defaultValue: Authenticating = Authentication()
+}
+
+private struct UserManagerEnvironmentKey: EnvironmentKey {
+    static let defaultValue: UserManaging = PlaceholderUserManager()
+}
+
+private struct LogInSwitcherEnvironmentKey: EnvironmentKey {
+    static let defaultValue: LogInSwitching = LogInSwitcher()
 }
 
 extension EnvironmentValues {
-    var authentication: Authentication {
+    var authentication: Authenticating {
         get { self[AuthenticationEnvironmentKey.self] }
         set { self[AuthenticationEnvironmentKey.self] = newValue }
+    }
+    var userManager: UserManaging {
+        get { self[UserManagerEnvironmentKey.self] }
+        set { self[UserManagerEnvironmentKey.self] = newValue }
+    }
+    var logInSwitcher: LogInSwitching {
+        get { self[LogInSwitcherEnvironmentKey.self] }
+        set { self[LogInSwitcherEnvironmentKey.self] = newValue }
     }
 }
 
 @MainActor
 struct AuthenticatedView: View {
-    @EnvironmentObject private var logInSwitcher: LogInSwitcher
+    @Environment(\.logInSwitcher) private var logInSwitcher: LogInSwitching
 
     @State private var isLoggingOut = false
 
@@ -62,12 +78,11 @@ struct UserManagementView: View {
 
     @State private var state: ViewState = .loaded
 
-    @EnvironmentObject private var userManager: UserManager
+    @Environment(\.userManager) private var userManager: UserManaging
 
     var body: some View {
         VStack {
             Text("You are logged in with token \(userManager.token)")
-
             switch state {
             case .loaded:
                 Button {
@@ -107,7 +122,7 @@ struct StoriesView: View {
 
     @State private var state: LoadingState = .fetching
 
-    @EnvironmentObject private var storyFetcher: StoryFetcher
+    @Environment(StoryFetcher.self) private var storyFetcher: StoryFetcher
 
     var body: some View {
         switch state {
@@ -136,8 +151,8 @@ struct StoriesView: View {
 
 @MainActor
 struct LogInView: View {
-    @Environment(\.authentication) private var authentication: Authentication
-    @EnvironmentObject private var logInSwitcher: LogInSwitcher
+    @Environment(\.authentication) private var authentication: Authenticating
+    @Environment(\.logInSwitcher) private var logInSwitcher: LogInSwitching
 
     @State private var isAuthenticating = false
 
@@ -149,22 +164,28 @@ struct LogInView: View {
             VStack {
                 Text("You are logged out now")
                 Button {
-                    isAuthenticating = true
+                    Task.detached {
+                        await authenticate()
+                    }
                 } label: {
                     Text("Log In")
-                }.task(id: isAuthenticating, priority: .userInitiated) {
-                    defer {
-                        isAuthenticating = false
-                    }
-
-                    do {
-                        let token = try await authentication.authenticate()
-                        await logInSwitcher.tokenChannel.send(token)
-                    } catch {
-                        // Not implemented
-                    }
                 }
             }
+        }
+    }
+
+    private func authenticate() async {
+        isAuthenticating = true
+
+        defer {
+            isAuthenticating = false
+        }
+
+        do {
+            let token = try await authentication.authenticate()
+            await logInSwitcher.tokenChannel.send(token)
+        } catch {
+            // Not implemented
         }
     }
 }
@@ -173,17 +194,13 @@ struct LogInView: View {
 class AppViewModel: ObservableObject {
     @Published private(set) var state: AppState = .loggedOut
 
-    private let logInSwitcher: LogInSwitcher
-
-    init(logInSwitcher: LogInSwitcher) {
-        self.logInSwitcher = logInSwitcher
-
+    init(logInSwitcher: LogInSwitching) {
         Task.detached { [weak self] in
             await self?.observe(logInSwitcher: logInSwitcher)
         }
     }
 
-    private func observe(logInSwitcher: LogInSwitcher) async {
+    private func observe(logInSwitcher: LogInSwitching) async {
         for await token in logInSwitcher.tokenChannel {
             state = switch token.isEmpty {
             case true: .loggedOut
@@ -195,34 +212,30 @@ class AppViewModel: ObservableObject {
 
 @MainActor
 struct AppView: View {
-    @EnvironmentObject var viewModel: AppViewModel
+    @StateObject var viewModel: AppViewModel
 
     var body: some View {
         switch viewModel.state {
         case let .authenticated(token):
-            // AppView is now responsible for passing the right dependencies into `environment` or `environmentObject
-            // Failing to do so will result in a crash
-            // It does fix the issue we need a token for some services
+            // AppView is now responsible for passing the right dependencies into `environment` or `environmentObject`
+            // Failing to set the `UserManager` will result in the `PlaceholderUserManager` being used
+            // Failing to set the `StoryFetcher` will result in a crash when it's accessed
+            // It does work really well to keep certain dependencies only in one part of the tree
             AuthenticatedView()
-                .environmentObject(UserManager(token: token))
-                .environmentObject(StoryFetcher(token: token))
+                .environment(\.userManager, UserManager(token: token))
+                .environment(StoryFetcher(token: token))
         case .loggedOut:
             LogInView()
-                .environment(\.authentication, Authentication())
         }
     }
 }
 
 @MainActor
 struct ContentView: View {
-    private let logInSwitcher = LogInSwitcher()
+    @Environment(\.logInSwitcher) private var logInSwitcher: LogInSwitching
 
     var body: some View {
-        AppView()
-            .environmentObject(logInSwitcher)
-            .environmentObject(
-                AppViewModel(logInSwitcher: logInSwitcher)
-            )
+        AppView(viewModel: AppViewModel(logInSwitcher: logInSwitcher))
     }
 }
 

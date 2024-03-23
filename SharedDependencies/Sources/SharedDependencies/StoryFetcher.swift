@@ -12,10 +12,11 @@ public struct Story: Sendable, Equatable {
     public let name: String
 }
 
-public protocol StoryFetching: ObservableObject, Sendable {
+public protocol StoryFetching: Sendable, Observable {
     func fetchStories() async throws -> [Story]
 }
 
+@Observable
 public final class StoryFetcher: StoryFetching {
     private let token: String
 
@@ -24,7 +25,7 @@ public final class StoryFetcher: StoryFetching {
     }
 
     public func fetchStories() async throws -> [Story] {
-        try await Task.sleep(for: .seconds(3))
+        try await Task.sleep(for: .seconds(2))
         return [
             Story(author: "Frank Herbert", name: "Dune"),
             Story(author: "Larry Niven", name: "Ringworld"),

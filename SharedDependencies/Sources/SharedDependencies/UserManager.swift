@@ -8,13 +8,13 @@
 import Foundation
 
 // ObservableObject is really here for EnvironmentObject
-public protocol UserManaging: ObservableObject, Sendable {
+public protocol UserManaging: Sendable {
     var token: String { get }
 
     func update(user: String) async throws -> Bool
 }
 
-public final class UserManager: ObservableObject, UserManaging {
+public final class UserManager: UserManaging {
     public let token: String
 
     public init(token: String) {
@@ -22,7 +22,7 @@ public final class UserManager: ObservableObject, UserManaging {
     }
 
     public func update(user: String) async throws -> Bool {
-        try await Task.sleep(for: .seconds(3))
+        try await Task.sleep(for: .seconds(2))
         return true
     }
 }

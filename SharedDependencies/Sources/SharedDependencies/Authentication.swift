@@ -15,7 +15,7 @@ public actor Authentication: Authenticating {
     public init() { }
 
     public func authenticate() async throws -> String  {
-        try await Task.sleep(for: .seconds(3))
+        try await Task.sleep(for: .seconds(2))
         return "V4L1D-T0K3N"
     }
 }
