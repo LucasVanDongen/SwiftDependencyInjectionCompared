@@ -10,7 +10,7 @@ let strictConcurrency: SwiftSetting = .enableExperimentalFeature("StrictConcurre
 let package = Package(
     name: name,
     platforms: [
-        .macOS(.v13),
+        .macOS(.v14),
         .iOS(.v15),
         .visionOS(.v1),
         .tvOS(.v15),
