@@ -38,3 +38,36 @@ extension AuthenticatedFactory {
         StoriesView(storyFetcher: storyFetcher)
     }
 }
+
+// Example implementation for AuthenticatedView using this Factory:
+import SwiftUI
+
+@MainActor
+struct AuthenticatedFactoryView: View {
+    let factory: AuthenticatedFactory
+
+    @State private var isLoggingOut = false
+
+    var body: some View {
+        VStack {
+            // This View now knows nothing about how these Views are built
+            factory.userManagementView
+            factory.storiesView
+            Button {
+                isLoggingOut = true
+            } label: {
+                Text("Log Out")
+            }.task(id: isLoggingOut, priority: .high) {
+                guard isLoggingOut else {
+                    return
+                }
+
+                defer {
+                    isLoggingOut = false
+                }
+
+                await factory.logInSwitcher.loggedOut()
+            }
+        }
+    }
+}
