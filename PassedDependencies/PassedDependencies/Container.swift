@@ -18,21 +18,9 @@ class LogInDependencies: LogInDependenciesContaining {
     let logInSwitcher: any LogInSwitching = LogInSwitcher()
 }
 
-//protocol AuthenticatedDependenciesContaining {
-//    var token: String { get }
-//}
-//
-//class AuthenticatedDependencies: AuthenticatedDependenciesContaining {
-//    let token: String
-//
-//    init(token: String) {
-//        self.token = token
-//    }
-//}
-
 protocol AuthenticatedDependenciesContaining {
-    var userManager: any UserManaging { get }
     var logInSwitcher: any LogInSwitching { get }
+    var userManager: any UserManaging { get }
     var storyFetcher: any StoryFetching { get }
 }
 

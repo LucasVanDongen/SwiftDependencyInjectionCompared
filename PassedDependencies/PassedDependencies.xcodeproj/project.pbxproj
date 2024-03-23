@@ -14,6 +14,7 @@
 		A07AFD592B989AFF004954C9 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07AFD582B989AFF004954C9 /* Container.swift */; };
 		A07AFD5C2B989B4F004954C9 /* SharedDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = A07AFD5B2B989B4F004954C9 /* SharedDependencies */; };
 		A07AFD5E2B989FD0004954C9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07AFD5D2B989FD0004954C9 /* Model.swift */; };
+		A0C7F3DE2BAEE28200204047 /* AuthenticatedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C7F3DD2BAEE28200204047 /* AuthenticatedFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A07AFD512B989AED004954C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A07AFD582B989AFF004954C9 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		A07AFD5D2B989FD0004954C9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A0C7F3DD2BAEE28200204047 /* AuthenticatedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		A07AFD482B989AEA004954C9 /* PassedDependencies */ = {
 			isa = PBXGroup;
 			children = (
+				A0C7F3DC2BAEE27100204047 /* Factories */,
 				A07AFD492B989AEA004954C9 /* PassedDependenciesApp.swift */,
 				A07AFD4B2B989AEA004954C9 /* ContentView.swift */,
 				A07AFD4D2B989AED004954C9 /* Assets.xcassets */,
@@ -75,6 +78,14 @@
 				A07AFD512B989AED004954C9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A0C7F3DC2BAEE27100204047 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				A0C7F3DD2BAEE28200204047 /* AuthenticatedFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A07AFD4C2B989AEA004954C9 /* ContentView.swift in Sources */,
+				A0C7F3DE2BAEE28200204047 /* AuthenticatedFactory.swift in Sources */,
 				A07AFD592B989AFF004954C9 /* Container.swift in Sources */,
 				A07AFD4A2B989AEA004954C9 /* PassedDependenciesApp.swift in Sources */,
 				A07AFD5E2B989FD0004954C9 /* Model.swift in Sources */,
