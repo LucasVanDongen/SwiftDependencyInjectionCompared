@@ -19,41 +19,20 @@ extension Container {
     }
 
     var userManager: Factory<any UserManaging> {
-        self { PlaceholderUserManager() }.singleton
+        self { PlaceholderUserManager() }.graph
     }
 
     var storyFetcher: Factory<any StoryFetching> {
-        self { PlaceholderStoryFetcher() }.singleton
-    }
-}
-
-// This implementation is used to prevent a `nil` value for this dependency while the user is not authenticated yet
-final class PlaceholderUserManager: UserManaging {
-    let token = "WR0NG_T0K3N"
-
-    func update(user: String) async throws -> Bool {
-        return false
-    }
-}
-
-final class PlaceholderStoryFetcher: StoryFetching {
-    // You have an issue if this function would actually be called
-    func fetchStories() async throws -> [Story] {
-        return []
+        self { PlaceholderStoryFetcher() }.graph
     }
 }
 
 class AuthenticatedDependenciesManager {
     static func handle(token: String) {
         switch token.isEmpty {
-        case true: deregister()
+        case true: break // We're relying on the `graph` feature to dismiss `token`-based real implementations
         case false: register(with: token)
         }
-    }
-
-    static func deregister() {
-        Container.shared.userManager.register { PlaceholderUserManager() }
-        Container.shared.storyFetcher.register { PlaceholderStoryFetcher() }
     }
 
     static func register(with token: String) {
