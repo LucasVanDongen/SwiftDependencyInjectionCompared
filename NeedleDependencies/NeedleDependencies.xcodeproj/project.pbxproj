@@ -11,7 +11,6 @@
 		A0107A492BA090F300D3A35B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A482BA090F300D3A35B /* ContentView.swift */; };
 		A0107A4B2BA090F600D3A35B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0107A4A2BA090F600D3A35B /* Assets.xcassets */; };
 		A0107A4E2BA090F600D3A35B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0107A4D2BA090F600D3A35B /* Preview Assets.xcassets */; };
-		A0107A592BA0934A00D3A35B /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A0107A582BA0934A00D3A35B /* NeedleFoundation */; };
 		A0107A5C2BA099EF00D3A35B /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A5B2BA099EF00D3A35B /* NeedleGenerated.swift */; };
 		A0107A5E2BA09ADB00D3A35B /* RootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A5D2BA09ADB00D3A35B /* RootComponent.swift */; };
 		A0107A612BA09B7D00D3A35B /* SharedDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = A0107A602BA09B7D00D3A35B /* SharedDependencies */; };
@@ -38,7 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0107A612BA09B7D00D3A35B /* SharedDependencies in Frameworks */,
-				A0107A592BA0934A00D3A35B /* NeedleFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +109,6 @@
 			);
 			name = NeedleDependencies;
 			packageProductDependencies = (
-				A0107A582BA0934A00D3A35B /* NeedleFoundation */,
 				A0107A602BA09B7D00D3A35B /* SharedDependencies */,
 			);
 			productName = NeedleDependencies;
@@ -143,8 +140,8 @@
 			);
 			mainGroup = A0107A3A2BA090F300D3A35B;
 			packageReferences = (
-				A0107A562BA092C300D3A35B /* XCRemoteSwiftPackageReference "needle" */,
 				A0107A5F2BA09B7D00D3A35B /* XCLocalSwiftPackageReference "../SharedDependencies" */,
+				CAFD9ABF2BB22F2B00B35F4A /* XCRemoteSwiftPackageReference "needle" */,
 			);
 			productRefGroup = A0107A442BA090F300D3A35B /* Products */;
 			projectDirPath = "";
@@ -335,7 +332,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleDependencies/Preview Content\"";
-				DEVELOPMENT_TEAM = 3RR8WDK6W2;
+				DEVELOPMENT_TEAM = VFRXY8HC3H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -366,7 +363,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleDependencies/Preview Content\"";
-				DEVELOPMENT_TEAM = 3RR8WDK6W2;
+				DEVELOPMENT_TEAM = VFRXY8HC3H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -418,9 +415,9 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A0107A562BA092C300D3A35B /* XCRemoteSwiftPackageReference "needle" */ = {
+		CAFD9ABF2BB22F2B00B35F4A /* XCRemoteSwiftPackageReference "needle" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:uber/needle.git";
+			repositoryURL = "https://github.com/uber/needle";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -429,11 +426,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A0107A582BA0934A00D3A35B /* NeedleFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A0107A562BA092C300D3A35B /* XCRemoteSwiftPackageReference "needle" */;
-			productName = NeedleFoundation;
-		};
 		A0107A602BA09B7D00D3A35B /* SharedDependencies */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedDependencies;

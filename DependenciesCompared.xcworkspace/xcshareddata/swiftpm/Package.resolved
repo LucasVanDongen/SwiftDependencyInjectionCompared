@@ -12,16 +12,16 @@
     {
       "identity" : "factory",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:hmlongco/Factory.git",
+      "location" : "http://github.com/hmlongco/Factory",
       "state" : {
-        "revision" : "8ca11a7bd1ede031e8e6d7a912bb116e2e43961b",
-        "version" : "2.3.1"
+        "revision" : "587995f7d5cc667951d635fbf6b4252324ba0439",
+        "version" : "2.3.2"
       }
     },
     {
       "identity" : "needle",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:uber/needle.git",
+      "location" : "https://github.com/uber/needle",
       "state" : {
         "branch" : "master",
         "revision" : "6db73ae873952794b94fd6bb5111554e23c160af"
@@ -95,8 +95,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-dependencies",
       "state" : {
-        "revision" : "09e49dd46932adfe80ce672b4b3772d79ee6c21a",
-        "version" : "1.2.1"
+        "revision" : "d3a5af3038a09add4d7682f66555d6212058a3c0",
+        "version" : "1.2.2"
       }
     },
     {

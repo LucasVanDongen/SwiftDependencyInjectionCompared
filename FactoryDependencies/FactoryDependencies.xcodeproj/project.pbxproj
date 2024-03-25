@@ -13,8 +13,8 @@
 		A0107A212BA0809E00D3A35B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0107A202BA0809E00D3A35B /* Preview Assets.xcassets */; };
 		A0107A2B2BA080D600D3A35B /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A2A2BA080D600D3A35B /* Container.swift */; };
 		A0107A2F2BA080FE00D3A35B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0107A2E2BA080FE00D3A35B /* Model.swift */; };
-		A0107A352BA0846D00D3A35B /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = A0107A342BA0846D00D3A35B /* Factory */; };
 		A0107A392BA08C4000D3A35B /* SharedDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = A0107A382BA08C4000D3A35B /* SharedDependencies */; };
+		CAFD9B712BB2371F00B35F4A /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = CAFD9B702BB2371F00B35F4A /* Factory */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0107A392BA08C4000D3A35B /* SharedDependencies in Frameworks */,
-				A0107A352BA0846D00D3A35B /* Factory in Frameworks */,
+				CAFD9B712BB2371F00B35F4A /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,8 +106,8 @@
 			);
 			name = FactoryDependencies;
 			packageProductDependencies = (
-				A0107A342BA0846D00D3A35B /* Factory */,
 				A0107A382BA08C4000D3A35B /* SharedDependencies */,
+				CAFD9B702BB2371F00B35F4A /* Factory */,
 			);
 			productName = FactoryDependencies;
 			productReference = A0107A162BA0809C00D3A35B /* FactoryDependencies.app */;
@@ -138,8 +138,8 @@
 			);
 			mainGroup = A0107A0D2BA0809C00D3A35B;
 			packageReferences = (
-				A0107A322BA083B600D3A35B /* XCRemoteSwiftPackageReference "Factory" */,
 				A0107A372BA08C4000D3A35B /* XCLocalSwiftPackageReference "../SharedDependencies" */,
+				CAFD9AC02BB22F6400B35F4A /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = A0107A172BA0809C00D3A35B /* Products */;
 			projectDirPath = "";
@@ -307,7 +307,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FactoryDependencies/Preview Content\"";
-				DEVELOPMENT_TEAM = 3RR8WDK6W2;
+				DEVELOPMENT_TEAM = VFRXY8HC3H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -317,6 +317,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.lucasvandongen.FactoryDependencies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -338,7 +339,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FactoryDependencies/Preview Content\"";
-				DEVELOPMENT_TEAM = 3RR8WDK6W2;
+				DEVELOPMENT_TEAM = VFRXY8HC3H;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -348,6 +349,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.lucasvandongen.FactoryDependencies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -390,25 +392,25 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A0107A322BA083B600D3A35B /* XCRemoteSwiftPackageReference "Factory" */ = {
+		CAFD9AC02BB22F6400B35F4A /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:hmlongco/Factory.git";
+			repositoryURL = "http://github.com/hmlongco/Factory";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.3.1;
+				minimumVersion = 2.3.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A0107A342BA0846D00D3A35B /* Factory */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A0107A322BA083B600D3A35B /* XCRemoteSwiftPackageReference "Factory" */;
-			productName = Factory;
-		};
 		A0107A382BA08C4000D3A35B /* SharedDependencies */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedDependencies;
+		};
+		CAFD9B702BB2371F00B35F4A /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAFD9AC02BB22F6400B35F4A /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

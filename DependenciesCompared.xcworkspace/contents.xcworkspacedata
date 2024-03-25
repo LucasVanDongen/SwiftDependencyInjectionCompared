@@ -12,6 +12,9 @@
       </FileRef>
    </Group>
    <FileRef
+      location = "group:SwiftDependencies/SwiftDependencies.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:PassedDependencies/PassedDependencies.xcodeproj">
    </FileRef>
    <FileRef
