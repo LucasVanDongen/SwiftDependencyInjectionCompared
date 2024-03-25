@@ -13,12 +13,13 @@ public struct Story: Sendable, Equatable {
 }
 
 public protocol StoryFetching: Sendable, Observable {
+    var token: String { get set }
     func fetchStories() async throws -> [Story]
 }
 
 @Observable
 public final class StoryFetcher: StoryFetching {
-    private let token: String
+    public var token: String
 
     public init(token: String) {
         self.token = token

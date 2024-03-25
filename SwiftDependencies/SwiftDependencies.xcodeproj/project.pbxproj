@@ -11,7 +11,6 @@
 		CAFD9B412BB234B700B35F4A /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFD9B402BB234B700B35F4A /* AppFeature.swift */; };
 		CAFD9B432BB234B800B35F4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFD9B422BB234B800B35F4A /* Assets.xcassets */; };
 		CAFD9B462BB234B800B35F4A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFD9B452BB234B800B35F4A /* Preview Assets.xcassets */; };
-		CAFD9B502BB234B900B35F4A /* SwiftDependenciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFD9B4F2BB234B900B35F4A /* SwiftDependenciesTests.swift */; };
 		CAFD9B6A2BB234C600B35F4A /* SharedDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = CAFD9B692BB234C600B35F4A /* SharedDependencies */; };
 		CAFD9B6D2BB234FD00B35F4A /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = CAFD9B6C2BB234FD00B35F4A /* Dependencies */; };
 		CAFD9B6F2BB2367800B35F4A /* LoggedOutFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFD9B6E2BB2367800B35F4A /* LoggedOutFeature.swift */; };
@@ -19,24 +18,12 @@
 		CAFD9B752BB23AD800B35F4A /* AuthenticatedFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFD9B742BB23AD800B35F4A /* AuthenticatedFeature.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CAFD9B4C2BB234B900B35F4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAFD9B332BB234B700B35F4A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CAFD9B3A2BB234B700B35F4A;
-			remoteInfo = SwiftDependencies;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		CAFD9B3B2BB234B700B35F4A /* SwiftDependencies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDependencies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFD9B3E2BB234B700B35F4A /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CAFD9B402BB234B700B35F4A /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		CAFD9B422BB234B800B35F4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAFD9B452BB234B800B35F4A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CAFD9B4B2BB234B900B35F4A /* SwiftDependenciesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDependenciesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAFD9B4F2BB234B900B35F4A /* SwiftDependenciesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDependenciesTests.swift; sourceTree = "<group>"; };
 		CAFD9B6E2BB2367800B35F4A /* LoggedOutFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutFeature.swift; sourceTree = "<group>"; };
 		CAFD9B722BB2375800B35F4A /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		CAFD9B742BB23AD800B35F4A /* AuthenticatedFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedFeature.swift; sourceTree = "<group>"; };
@@ -52,13 +39,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CAFD9B482BB234B900B35F4A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,7 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				CAFD9B3D2BB234B700B35F4A /* SwiftDependencies */,
-				CAFD9B4E2BB234B900B35F4A /* SwiftDependenciesTests */,
 				CAFD9B3C2BB234B700B35F4A /* Products */,
 				CAFD9B682BB234C600B35F4A /* Frameworks */,
 			);
@@ -76,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				CAFD9B3B2BB234B700B35F4A /* SwiftDependencies.app */,
-				CAFD9B4B2BB234B900B35F4A /* SwiftDependenciesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,14 +79,6 @@
 				CAFD9B452BB234B800B35F4A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		CAFD9B4E2BB234B900B35F4A /* SwiftDependenciesTests */ = {
-			isa = PBXGroup;
-			children = (
-				CAFD9B4F2BB234B900B35F4A /* SwiftDependenciesTests.swift */,
-			);
-			path = SwiftDependenciesTests;
 			sourceTree = "<group>";
 		};
 		CAFD9B682BB234C600B35F4A /* Frameworks */ = {
@@ -142,24 +112,6 @@
 			productReference = CAFD9B3B2BB234B700B35F4A /* SwiftDependencies.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CAFD9B4A2BB234B900B35F4A /* SwiftDependenciesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CAFD9B622BB234B900B35F4A /* Build configuration list for PBXNativeTarget "SwiftDependenciesTests" */;
-			buildPhases = (
-				CAFD9B472BB234B900B35F4A /* Sources */,
-				CAFD9B482BB234B900B35F4A /* Frameworks */,
-				CAFD9B492BB234B900B35F4A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CAFD9B4D2BB234B900B35F4A /* PBXTargetDependency */,
-			);
-			name = SwiftDependenciesTests;
-			productName = SwiftDependenciesTests;
-			productReference = CAFD9B4B2BB234B900B35F4A /* SwiftDependenciesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -172,10 +124,6 @@
 				TargetAttributes = {
 					CAFD9B3A2BB234B700B35F4A = {
 						CreatedOnToolsVersion = 15.3;
-					};
-					CAFD9B4A2BB234B900B35F4A = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = CAFD9B3A2BB234B700B35F4A;
 					};
 				};
 			};
@@ -196,7 +144,6 @@
 			projectRoot = "";
 			targets = (
 				CAFD9B3A2BB234B700B35F4A /* SwiftDependencies */,
-				CAFD9B4A2BB234B900B35F4A /* SwiftDependenciesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -208,13 +155,6 @@
 			files = (
 				CAFD9B462BB234B800B35F4A /* Preview Assets.xcassets in Resources */,
 				CAFD9B432BB234B800B35F4A /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CAFD9B492BB234B900B35F4A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,23 +173,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CAFD9B472BB234B900B35F4A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CAFD9B502BB234B900B35F4A /* SwiftDependenciesTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CAFD9B4D2BB234B900B35F4A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CAFD9B3A2BB234B700B35F4A /* SwiftDependencies */;
-			targetProxy = CAFD9B4C2BB234B900B35F4A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CAFD9B5D2BB234B900B35F4A /* Debug */ = {
@@ -429,44 +353,6 @@
 			};
 			name = Release;
 		};
-		CAFD9B632BB234B900B35F4A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.pointfree.SwiftDependenciesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftDependencies.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftDependencies";
-			};
-			name = Debug;
-		};
-		CAFD9B642BB234B900B35F4A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.pointfree.SwiftDependenciesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftDependencies.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftDependencies";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -484,15 +370,6 @@
 			buildConfigurations = (
 				CAFD9B602BB234B900B35F4A /* Debug */,
 				CAFD9B612BB234B900B35F4A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CAFD9B622BB234B900B35F4A /* Build configuration list for PBXNativeTarget "SwiftDependenciesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CAFD9B632BB234B900B35F4A /* Debug */,
-				CAFD9B642BB234B900B35F4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

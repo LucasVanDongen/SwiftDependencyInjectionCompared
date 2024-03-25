@@ -24,18 +24,7 @@ class AppModel {
         if token.isEmpty {
           state = .loggedOut(LoggedOutModel())
         } else {
-          // Create the AuthenticatedModel in an altered environment where the \.userManager
-          // and \.storyFetcher dependencies have been given a token. Without this step the app
-          // will emit 🟣purple runtime warnings🟣 when the dependencies are accessed without being
-          // overridden.
-          state = .authenticated(
-            withDependencies(from: self) {
-              $0.userManager = UserManager(token: token)
-              $0.storyFetcher = StoryFetcher(token: token)
-            } operation: {
-              AuthenticatedModel()
-            }
-          )
+          state = .authenticated(AuthenticatedModel(token: token))
         }
       }
     }

@@ -9,8 +9,13 @@ class AuthenticatedModel {
   @Dependency(\.logInSwitcher) var logInSwitcher
 
   var isLoggingOut = false
-  let stories = StoriesModel()
-  let userManagement = UserManagementModel()
+  let stories: StoriesModel
+  let userManagement: UserManagementModel
+
+  init(token: String) {
+    stories = StoriesModel(token: token)
+    userManagement = UserManagementModel(token: token)
+  }
 
   func logoutButtonTapped() async {
     isLoggingOut = true
@@ -21,9 +26,6 @@ class AuthenticatedModel {
 }
 
 struct AuthenticatedView: View {
-  @ObservationIgnored
-  @Dependency(\.userManager) var userManager
-
   let model: AuthenticatedModel
 
   var body: some View {
@@ -43,7 +45,12 @@ struct AuthenticatedView: View {
 @Observable
 class UserManagementModel {
   @ObservationIgnored
-  @Dependency(\.userManager) var userManager
+  @Dependency var userManager: any UserManaging
+
+  init(token: String) {
+    self._userManager = Dependency(\.[userManagerForToken: token])
+    self.state = .loaded
+  }
 
   var state = State.loaded
 
@@ -93,7 +100,12 @@ struct UserManagementView: View {
 @Observable
 class StoriesModel {
   @ObservationIgnored
-  @Dependency(\.storyFetcher) private var storyFetcher
+  @Dependency private var storyFetcher: any StoryFetching
+
+  init(token: String) {
+    self._storyFetcher = Dependency(\.[storyFetcherForToken: token])
+    self.state = state
+  }
 
   var state = State.fetching
 
