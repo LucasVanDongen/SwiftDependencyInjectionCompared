@@ -22,11 +22,10 @@ extension DependencyValues {
   }
 }
 
-private enum UserManagerKey: DependencyKey {
-  static let liveValue: any UserManaging = UserManager(token: "invalid-token")
-}
-
 extension DependencyValues {
+  private enum UserManagerKey: DependencyKey {
+    static let liveValue: any UserManaging = UserManager(token: "invalid-token")
+  }
   subscript(userManagerForToken token: String) -> any UserManaging {
     get {
       var manager = self[UserManagerKey.self]
@@ -41,11 +40,10 @@ extension DependencyValues {
   }
 }
 
-private enum StoryFetcherKey: DependencyKey {
-  static let liveValue: any StoryFetching = StoryFetcher(token: "invalid-token")
-}
-
 extension DependencyValues {
+  private enum StoryFetcherKey: DependencyKey {
+    static let liveValue: any StoryFetching = StoryFetcher(token: "invalid-token")
+  }
   subscript(storyFetcherForToken token: String) -> any StoryFetching {
     get {
       var manager = self[StoryFetcherKey.self]
