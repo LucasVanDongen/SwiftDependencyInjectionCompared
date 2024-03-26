@@ -9,13 +9,13 @@ import Foundation
 
 // ObservableObject is really here for EnvironmentObject
 public protocol UserManaging: Sendable {
-    var token: String { get }
+    var token: String { get set }
 
     func update(user: String) async throws -> Bool
 }
 
-public final class UserManager: UserManaging {
-    public let token: String
+public struct UserManager: UserManaging {
+    public var token: String
 
     public init(token: String) {
         self.token = token

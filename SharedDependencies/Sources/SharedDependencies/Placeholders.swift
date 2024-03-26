@@ -8,8 +8,8 @@
 import Foundation
 
 // This implementation is used to prevent a `nil` value for this dependency while the user is not authenticated yet
-public final class PlaceholderUserManager: UserManaging {
-    public let token = "WR0NG_T0K3N"
+public struct PlaceholderUserManager: UserManaging {
+    public var token = "WR0NG_T0K3N"
 
     public init() { }
 

@@ -22,8 +22,8 @@ extension DependencyValues {
   }
 }
 
-final class TestUserManager: UserManaging {
-  let token = "WR0NG_T4K3N"
+struct TestUserManager: UserManaging {
+  var token = "WR0NG_T4K3N"
 
   func update(user: String) async throws -> Bool {
     XCTFail("UserManaging.update(user:)")
@@ -36,6 +36,18 @@ private enum UserManagerKey: TestDependencyKey {
 }
 
 extension DependencyValues {
+  subscript(userManagerForToken token: String) -> any UserManaging {
+    get {
+      var manager = self[UserManagerKey.self]
+      manager.token = token
+      return manager
+    }
+    set {
+      var newValue = newValue
+      newValue.token = token
+      self[UserManagerKey.self] = newValue
+    }
+  }
   var userManager: any UserManaging {
     get { self[UserManagerKey.self] }
     set { self[UserManagerKey.self] = newValue }

@@ -21,9 +21,6 @@ class AuthenticatedModel {
 }
 
 struct AuthenticatedView: View {
-  @ObservationIgnored
-  @Dependency(\.userManager) var userManager
-
   let model: AuthenticatedModel
 
   var body: some View {
