@@ -48,6 +48,8 @@ class UserManagementModel {
   @Dependency var userManager: any UserManaging
 
   init(token: String) {
+    // In order to access the 'userManager` dependency we must supply proof that the user is
+    // authenaticated by passing the token to the subscript key path.
     self._userManager = Dependency(\.[userManagerForToken: token])
     self.state = .loaded
   }
@@ -103,6 +105,8 @@ class StoriesModel {
   @Dependency private var storyFetcher: any StoryFetching
 
   init(token: String) {
+    // In order to access the 'storyFetcher` dependency we must supply proof that the user is
+    // authenaticated by passing the token to the subscript key path.
     self._storyFetcher = Dependency(\.[storyFetcherForToken: token])
     self.state = state
   }

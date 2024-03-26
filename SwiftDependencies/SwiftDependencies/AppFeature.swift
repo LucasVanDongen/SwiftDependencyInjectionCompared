@@ -24,6 +24,8 @@ class AppModel {
         if token.isEmpty {
           state = .loggedOut(LoggedOutModel())
         } else {
+          // Providing the 'token' to AuthenticatedModel is now proof that the user is
+          // authenticated.
           state = .authenticated(AuthenticatedModel(token: token))
         }
       }
