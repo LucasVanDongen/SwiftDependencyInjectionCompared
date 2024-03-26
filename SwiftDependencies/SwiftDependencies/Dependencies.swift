@@ -22,17 +22,8 @@ extension DependencyValues {
   }
 }
 
-struct TestUserManager: UserManaging {
-  var token = "WR0NG_T4K3N"
-
-  func update(user: String) async throws -> Bool {
-    XCTFail("UserManaging.update(user:)")
-    return false
-  }
-}
-
-private enum UserManagerKey: TestDependencyKey {
-  static let testValue: any UserManaging = TestUserManager()
+private enum UserManagerKey: DependencyKey {
+  static let liveValue: any UserManaging = UserManager(token: "invalid-token")
 }
 
 extension DependencyValues {
@@ -48,26 +39,23 @@ extension DependencyValues {
       self[UserManagerKey.self] = newValue
     }
   }
-  var userManager: any UserManaging {
-    get { self[UserManagerKey.self] }
-    set { self[UserManagerKey.self] = newValue }
-  }
 }
 
-final class TestStoryFetcher: StoryFetching {
-  func fetchStories() async throws -> [Story] {
-    XCTFail("StoryFetching.fetchStories")
-    return []
-  }
-}
-
-private enum StoryFetcherKey: TestDependencyKey {
-  static let testValue: any StoryFetching = TestStoryFetcher()
+private enum StoryFetcherKey: DependencyKey {
+  static let liveValue: any StoryFetching = StoryFetcher(token: "invalid-token")
 }
 
 extension DependencyValues {
-  var storyFetcher: any StoryFetching {
-    get { self[StoryFetcherKey.self] }
-    set { self[StoryFetcherKey.self] = newValue }
+  subscript(storyFetcherForToken token: String) -> any StoryFetching {
+    get {
+      var manager = self[StoryFetcherKey.self]
+      manager.token = token
+      return manager
+    }
+    set {
+      var newValue = newValue
+      newValue.token = token
+      self[StoryFetcherKey.self] = newValue
+    }
   }
 }

@@ -18,7 +18,8 @@ public struct PlaceholderUserManager: UserManaging {
     }
 }
 
-public final class PlaceholderStoryFetcher: StoryFetching {
+public struct PlaceholderStoryFetcher: StoryFetching {
+    public var token = "WR0NG_T0K3N"
     public init() { }
 
     // You have an issue if this function would actually be called
