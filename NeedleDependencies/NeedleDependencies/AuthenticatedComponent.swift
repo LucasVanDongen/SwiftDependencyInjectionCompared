@@ -33,6 +33,7 @@ class AuthenticatedComponent: Component<AuthenticatedDependency> {
     }
 }
 
+@MainActor
 protocol AuthenticatedViewBuilding {
     var authenticatedView: AuthenticatedView { get }
     var storiesView: StoriesView { get }

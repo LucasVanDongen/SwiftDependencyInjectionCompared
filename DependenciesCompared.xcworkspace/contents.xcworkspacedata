@@ -2,6 +2,16 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <Group
+      location = "group:images"
+      name = "images">
+      <FileRef
+         location = "group:injection_frameworks_compared.png">
+      </FileRef>
+   </Group>
+   <FileRef
       location = "group:PassedDependencies/PassedDependencies.xcodeproj">
    </FileRef>
    <FileRef
