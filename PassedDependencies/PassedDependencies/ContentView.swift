@@ -218,14 +218,17 @@ struct AppView: View {
         case let .authenticated(token):
             // Watch out: the dependencies get recreated every time the View gets re-rendered
             // Is this what you really want? Only when your dependencies are truly stateless!
-            let dependencies = AuthenticatedDependencies(
-                token: token,
-                logInSwitcher: logInDependencies.logInSwitcher
-            )
-            return AnyView(AuthenticatedView(dependencies: dependencies))
+            AuthenticatedView(dependencies: dependencies(for: token))
         case .loggedOut:
-            return AnyView(LogInView(dependencies: logInDependencies))
+            LogInView(dependencies: logInDependencies)
         }
+    }
+
+    private func dependencies(for token: String) -> AuthenticatedDependencies {
+        AuthenticatedDependencies(
+            token: token,
+            logInSwitcher: logInDependencies.logInSwitcher
+        )
     }
 }
 

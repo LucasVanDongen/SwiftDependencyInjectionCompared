@@ -203,10 +203,12 @@ struct AppView: View {
     var body: some View {
         switch viewModel.state {
         case let .authenticated(token):
-            let authenticatedComponent = rootComponent.authenticatedComponent(token: token)
-            return AnyView(authenticatedComponent.authenticatedView)
+            rootComponent
+                .authenticatedComponent(token: token)
+                .authenticatedView
         case .loggedOut:
-            return AnyView(logInComponent.logInView)
+            logInComponent
+                .logInView
         }
     }
 }
