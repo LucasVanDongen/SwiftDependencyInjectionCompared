@@ -9,8 +9,6 @@ import SharedDependencies
 import NeedleFoundation
 import SwiftUI
 
-let rootComponent = RootComponent()
-
 class RootComponent: BootstrapComponent {
     var logInComponent: LogInComponent { LogInComponent(parent: self) }
 
@@ -41,8 +39,8 @@ extension RootComponent: AppViewBuilding {
     var appView: AppView {
         AppView(
             viewModel: self.appViewModel,
-            logInComponent: logInComponent,
-            rootComponent: self
+            rootComponent: self,
+            logInComponent: logInComponent
         )
     }
 

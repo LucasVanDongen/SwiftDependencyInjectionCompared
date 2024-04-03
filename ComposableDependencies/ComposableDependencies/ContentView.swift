@@ -51,7 +51,10 @@ struct UserManagementView: View {
                     Text("Update User")
                 }
             case .updating:
-                Text("Updating User...")
+                HStack {
+                    Text("Updating User...")
+                    ProgressView()
+                }
             case let .failed(reason):
                 Text("Failed updating User:\n\(reason)")
             case .updated:
@@ -68,10 +71,13 @@ struct StoriesView: View {
     var body: some View {
         switch store.state {
         case .loading:
-            Text("Fetching stories...")
-                .task {
-                    store.send(.startLoading)
-                }
+            HStack {
+                Text("Fetching stories...")
+                ProgressView()
+            }
+            .task {
+                store.send(.startLoading)
+            }
         case let .failed(reason):
             Text("Failed fetching stories:\n\(reason)")
         case let .loaded(stories):
@@ -91,7 +97,10 @@ struct LogInView: View {
     var body: some View {
         switch store.state {
         case .authenticating:
-            Text("Authenticating...")
+            HStack {
+                Text("Authenticating...")
+                ProgressView()
+            }
         case .waiting:
             VStack {
                 Text("You are logged out now")

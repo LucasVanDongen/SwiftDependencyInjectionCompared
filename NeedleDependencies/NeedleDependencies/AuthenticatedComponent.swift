@@ -41,7 +41,6 @@ protocol AuthenticatedViewBuilding {
 }
 
 extension AuthenticatedComponent: AuthenticatedViewBuilding {
-  @MainActor
     var authenticatedView: AuthenticatedView {
         AuthenticatedView(
             logInSwitcher: dependency.logInSwitcher,

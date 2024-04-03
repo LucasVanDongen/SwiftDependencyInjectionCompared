@@ -65,7 +65,10 @@ struct UserManagementView: View {
                     Text("Update User")
                 }
             case .updating:
-                Text("Updating User...")
+                HStack {
+                    Text("Updating User...")
+                    ProgressView()
+                }
             case let .failed(reason):
                 Text("Failed updating User:\n\(reason)")
             case .updated:
@@ -101,16 +104,19 @@ struct StoriesView: View {
     var body: some View {
         switch state {
         case .fetching:
-            Text("Fetching stories...")
-                .task {
-                    state = .fetching
-                    do {
-                        let stories = try await storyFetcher.fetchStories()
-                        state = .fetched(stories: stories) // You can safely mutate state properties from any thread.
-                    } catch let error {
-                        state = .failed(reason: error.localizedDescription)
-                    }
+            HStack {
+                Text("Fetching stories...")
+                ProgressView()
+            }
+            .task {
+                state = .fetching
+                do {
+                    let stories = try await storyFetcher.fetchStories()
+                    state = .fetched(stories: stories) // You can safely mutate state properties from any thread.
+                } catch let error {
+                    state = .failed(reason: error.localizedDescription)
                 }
+            }
         case let .failed(reason):
             Text("Failed fetching stories:\n\(reason)")
         case let .fetched(stories):
@@ -133,7 +139,10 @@ struct LogInView: View {
     var body: some View {
         switch isAuthenticating {
         case true:
-            Text("Authenticating...")
+            HStack {
+                Text("Authenticating...")
+                ProgressView()
+            }
         case false:
             VStack {
                 Text("You are logged out now")
@@ -197,24 +206,22 @@ class AppViewModel: ObservableObject {
 struct AppView: View {
     @StateObject var viewModel: AppViewModel
 
-    let logInComponent: LogInComponent
     let rootComponent: RootComponent
+    let logInComponent: LogInComponent
 
     var body: some View {
         switch viewModel.state {
         case let .authenticated(token):
-            rootComponent
-                .authenticatedComponent(token: token)
+            rootComponent.authenticatedComponent(token: token)
                 .authenticatedView
         case .loggedOut:
-            logInComponent
-                .logInView
+            logInComponent.logInView
         }
     }
 }
 
 struct ContentView: View {
-    let rootComponent = RootComponent()
+    @State private var rootComponent = RootComponent()
 
     var body: some View {
         rootComponent.appView

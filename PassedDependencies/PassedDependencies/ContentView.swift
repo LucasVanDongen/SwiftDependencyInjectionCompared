@@ -64,7 +64,10 @@ struct UserManagementView: View {
                     Text("Update User")
                 }
             case .updating:
-                Text("Updating User...")
+                HStack {
+                    Text("Updating User...")
+                    ProgressView()
+                }
             case let .failed(reason):
                 Text("Failed updating User:\n\(reason)")
             case .updated:
@@ -100,16 +103,19 @@ struct StoriesView: View {
     var body: some View {
         switch state {
         case .fetching:
-            Text("Fetching stories...")
-                .task {
-                    state = .fetching
-                    do {
-                        let stories = try await storyFetcher.fetchStories()
-                        state = .fetched(stories: stories) // You can safely mutate state properties from any thread.
-                    } catch let error {
-                        state = .failed(reason: error.localizedDescription)
-                    }
+            HStack {
+                Text("Fetching stories...")
+                ProgressView()
+            }
+            .task {
+                state = .fetching
+                do {
+                    let stories = try await storyFetcher.fetchStories()
+                    state = .fetched(stories: stories) // You can safely mutate state properties from any thread.
+                } catch let error {
+                    state = .failed(reason: error.localizedDescription)
                 }
+            }
         case let .failed(reason):
             Text("Failed fetching stories:\n\(reason)")
         case let .fetched(stories):
@@ -134,13 +140,10 @@ struct LogInView: View {
             switch isAuthenticating {
             case true:
                 VStack {
-                    Text("Authenticating...")
-//                    Button {
-//                        print("Tap \(Thread.current)")
-//                        tapped += 1
-//                    } label: {
-//                        Text("Tapped \(tapped) times")
-//                    }
+                    HStack {
+                        Text("Authenticating...")
+                        ProgressView()
+                    }
                 }
             case false:
                 VStack {
@@ -218,13 +221,15 @@ struct AppView: View {
         case let .authenticated(token):
             // Watch out: the dependencies get recreated every time the View gets re-rendered
             // Is this what you really want? Only when your dependencies are truly stateless!
-            AuthenticatedView(dependencies: dependencies(for: token))
+            AuthenticatedView(
+                dependencies: buildAuthenticatedDependencies(for: token)
+            )
         case .loggedOut:
             LogInView(dependencies: logInDependencies)
         }
     }
 
-    private func dependencies(for token: String) -> AuthenticatedDependencies {
+    private func buildAuthenticatedDependencies(for token: String) -> AuthenticatedDependencies {
         AuthenticatedDependencies(
             token: token,
             logInSwitcher: logInDependencies.logInSwitcher

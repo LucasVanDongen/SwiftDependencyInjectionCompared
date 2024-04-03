@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 @main
 struct PassedDependenciesApp: App {
     var body: some Scene {

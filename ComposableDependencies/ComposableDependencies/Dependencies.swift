@@ -21,7 +21,7 @@ extension DependencyValues {
 
 // This implementation is used to prevent a `nil` value for this dependency while the user is not authenticated yet
 final class PlaceholderUserManager: UserManaging {
-    let token = "WR0NG_T4K3N"
+    var token = "WR0NG_T4K3N"
 
     func update(user: String) async throws -> Bool {
         return false
@@ -40,6 +40,8 @@ extension DependencyValues {
 }
 
 final class PlaceholderStoryFetcher: StoryFetching {
+    var token: String = ""
+    
     // If this function would ever be executed, we have a problem
     func fetchStories() async throws -> [Story] {
         return []
